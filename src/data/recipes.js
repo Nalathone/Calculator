@@ -1,11 +1,23 @@
-// Helper function to get correct image URL
+// =====================================================
+// IMAGE HELPER
+// =====================================================
+
 const getImageUrl = (name) => {
   return new URL(`../assets/images/${name}`, import.meta.url).href;
 };
 
+
+// =====================================================
+// RECIPES
+// =====================================================
+
 export const RECIPES = {
   categories: [
-    { id: 'bento', label: 'Bento Sets', icon: '🍱' },
+    {
+      id: 'bento',
+      label: 'Bento Sets',
+      icon: '🍱',
+    },
   ],
 
   items: {
@@ -20,7 +32,7 @@ export const RECIPES = {
       weight: 1.0,
       unit: 'pack',
       yield: 1,
-      image: getImageUrl('bento1.jpg'),
+      image: getImageUrl('bento1.webp'),
 
       ingredients: [
         { itemId: 'cash', quantity: 50 },
@@ -44,7 +56,7 @@ export const RECIPES = {
       weight: 1.0,
       unit: 'pack',
       yield: 1,
-      image: getImageUrl('bento2.jpeg'),
+      image: getImageUrl('bento2.webp'),
 
       ingredients: [
         { itemId: 'cash', quantity: 50 },
@@ -69,7 +81,7 @@ export const RECIPES = {
       weight: 1.0,
       unit: 'pack',
       yield: 1,
-      image: getImageUrl('bento3.png'),
+      image: getImageUrl('bento3.webp'),
 
       ingredients: [
         { itemId: 'cash', quantity: 50 },
@@ -94,7 +106,7 @@ export const RECIPES = {
       weight: 0.2,
       unit: 'pack',
       yield: 1,
-      image: getImageUrl('wood_pack.jpg'),
+      image: getImageUrl('wood_pack.webp'),
 
       ingredients: [
         { itemId: 'normal_wood', quantity: 2 }
@@ -107,7 +119,7 @@ export const RECIPES = {
       weight: 0.2,
       unit: 'pack',
       yield: 1,
-      image: getImageUrl('pork_pack.jpg'),
+      image: getImageUrl('pork_pack.webp'),
 
       ingredients: [
         { itemId: 'raw_pork', quantity: 2 }
@@ -120,7 +132,7 @@ export const RECIPES = {
       weight: 0.2,
       unit: 'pack',
       yield: 1,
-      image: getImageUrl('rice_pack.jpg'),
+      image: getImageUrl('rice_pack.webp'),
 
       ingredients: [
         { itemId: 'raw_rice', quantity: 2 }
@@ -133,7 +145,7 @@ export const RECIPES = {
       weight: 0.2,
       unit: 'pack',
       yield: 1,
-      image: getImageUrl('milk_pack.jpg'),
+      image: getImageUrl('milk_pack.webp'),
 
       ingredients: [
         { itemId: 'raw_milk', quantity: 2 }
@@ -146,7 +158,7 @@ export const RECIPES = {
       weight: 0.2,
       unit: 'pack',
       yield: 1,
-      image: getImageUrl('packgrape.jpg'),
+      image: getImageUrl('packgrape.webp'),
 
       ingredients: [
         { itemId: 'raw_grape', quantity: 2 }
@@ -159,7 +171,7 @@ export const RECIPES = {
       weight: 0.2,
       unit: 'pack',
       yield: 1,
-      image: getImageUrl('packpapaya.jpg'),
+      image: getImageUrl('packpapaya.webp'),
 
       ingredients: [
         { itemId: 'raw_papaya', quantity: 2 }
@@ -172,7 +184,7 @@ export const RECIPES = {
       weight: 0.2,
       unit: 'pack',
       yield: 1,
-      image: getImageUrl('packcrab.jpg'),
+      image: getImageUrl('packcrab.webp'),
 
       ingredients: [
         { itemId: 'raw_crab', quantity: 2 }
@@ -190,7 +202,7 @@ export const RECIPES = {
       weight: 0.25,
       unit: 'bottle',
       yield: 1,
-      image: getImageUrl('sauce.jpg'),
+      image: getImageUrl('sauce.webp'),
 
       ingredients: []
     },
@@ -201,7 +213,7 @@ export const RECIPES = {
       weight: 0.1,
       unit: 'pcs',
       yield: 1,
-      image: getImageUrl('sugar.jpg'),
+      image: getImageUrl('sugar.webp'),
 
       ingredients: []
     },
@@ -212,7 +224,7 @@ export const RECIPES = {
       weight: 0.1,
       unit: 'pcs',
       yield: 1,
-      image: getImageUrl('salt.jpg'),
+      image: getImageUrl('salt.webp'),
 
       ingredients: []
     },
@@ -229,7 +241,7 @@ export const RECIPES = {
       unit: 'KKD',
       yield: 1,
       type: 'currency',
-      image: getImageUrl('cash.jpg'),
+      image: getImageUrl('cash.webp'),
 
       ingredients: []
     },
@@ -245,7 +257,7 @@ export const RECIPES = {
       weight: 0.2,
       unit: 'pcs',
       yield: 1,
-      image: getImageUrl('normal_wood.jpg'),
+      image: getImageUrl('normal_wood.webp'),
 
       ingredients: []
     },
@@ -256,7 +268,7 @@ export const RECIPES = {
       weight: 0.2,
       unit: 'pcs',
       yield: 1,
-      image: getImageUrl('raw_pork.jpg'),
+      image: getImageUrl('raw_pork.webp'),
 
       ingredients: []
     },
@@ -267,7 +279,7 @@ export const RECIPES = {
       weight: 0.2,
       unit: 'pcs',
       yield: 1,
-      image: getImageUrl('raw_rice.jpg'),
+      image: getImageUrl('raw_rice.webp'),
 
       ingredients: []
     },
@@ -278,7 +290,7 @@ export const RECIPES = {
       weight: 0.2,
       unit: 'pcs',
       yield: 1,
-      image: getImageUrl('raw_milk.jpg'),
+      image: getImageUrl('raw_milk.webp'),
 
       ingredients: []
     },
@@ -289,7 +301,7 @@ export const RECIPES = {
       weight: 0.2,
       unit: 'pcs',
       yield: 1,
-      image: getImageUrl('grape.png'),
+      image: getImageUrl('grape.webp'),
 
       ingredients: []
     },
@@ -300,7 +312,7 @@ export const RECIPES = {
       weight: 0.2,
       unit: 'pcs',
       yield: 1,
-      image: getImageUrl('papaya.jpg'),
+      image: getImageUrl('papaya.webp'),
 
       ingredients: []
     },
@@ -311,7 +323,7 @@ export const RECIPES = {
       weight: 0.2,
       unit: 'pcs',
       yield: 1,
-      image: getImageUrl('crab.jpg'),
+      image: getImageUrl('crab.webp'),
 
       ingredients: []
     }
