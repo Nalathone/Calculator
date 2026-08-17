@@ -71,12 +71,24 @@
       <section class="results-panel">
         <!-- Target Item Summary -->
         <div class="summary-card card">
-          <div class="summary-header">
-            <h3>Output Goal</h3>
-            <span class="weight-badge">
-              Total Weight: {{ calculationResult.totalWeight.toFixed(2) }} kg
-            </span>
-          </div>
+      <div class="summary-header">
+  <h3>Output Goal</h3>
+
+  <div class="summary-badges">
+
+    <span class="weight-badge">
+      Total Weight:
+      {{ calculationResult.totalWeight.toFixed(2) }} kg
+    </span>
+
+    <span class="cost-badge">
+      Cost:
+      {{ calculationResult.totalCost.toFixed(0) }} KKD
+    </span>
+
+  </div>
+</div>
+
           <div class="summary-detail">
             <img :src="calculationResult.finalItem?.image" class="result-img" @error="handleImageError" />
             <div>
@@ -88,7 +100,13 @@
   
         <!-- Tier 1 Component Direct Breakdown -->
         <div class="card">
-          <h3>Direct Ingredients Needed</h3>
+  <div class="section-header">
+    <h3>Direct Ingredients Needed</h3>
+
+    <span class="weight-badge">
+      Total Weight: {{ totalDirectIngredientWeight.toFixed(2) }} kg
+    </span>
+  </div>
           <div class="ingredient-grid">
             <div
               v-for="ing in calculationResult.directIngredients"
@@ -98,8 +116,12 @@
               <img :src="ing.image" :alt="ing.name" @error="handleImageError" />
               <div class="info">
                 <span class="ing-name">{{ ing.name }}</span>
+                <br>
+                <div class="gap">
                 <span class="ing-qty">{{ ing.requiredQty }} {{ ing.unit }}</span>
+                
                 <small class="ing-weight">{{ ing.totalWeight.toFixed(2) }} kg</small>
+              </div>
               </div>
             </div>
           </div>
@@ -107,7 +129,16 @@
 
         <!-- Tier 0 Raw Material Total Requirements -->
         <div class="card raw-materials-card">
-          <h3>Total Raw Materials Required</h3>
+          <div class="section-header">
+            <h3>Total Raw Materials Required</h3>
+
+    <span class="weight-badge">
+      Total Weight: {{ totalRawIngredientWeight.toFixed(2) }} kg
+    </span>
+  </div>
+
+
+
           <div class="ingredient-grid">
             <div
               v-for="raw in calculationResult.rawMaterials"
@@ -117,14 +148,21 @@
               <img :src="raw.image" :alt="raw.name" @error="handleImageError" />
               <div class="info">
                 <span class="ing-name">{{ raw.name }}</span>
+                <br>
+                <div class="gap">
                 <span class="ing-qty highlight">{{ raw.requiredQty }} {{ raw.unit }}</span>
                 <small class="ing-weight">{{ raw.totalWeight.toFixed(2) }} kg</small>
+              </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-    </main>
+  </main>
+
+    <footer class="app-footer">
+      © 2026 Nalathone_SMNV. All rights reserved.
+    </footer>
   </div>
 </template>
 
@@ -146,6 +184,8 @@ const themes = [
   { id: 'dark', label: '🌙 Dark Mode' }
 ];
 
+
+
 function setTheme(themeId) {
   currentTheme.value = themeId;
   sessionStorage.setItem('game_calc_theme', themeId);
@@ -156,6 +196,22 @@ const availableItems = computed(() => {
     item => item.category === activeCategory.value
   );
 });
+
+const totalDirectIngredientWeight = computed(() => {
+  return calculationResult.value.directIngredients.reduce(
+    (total, ing) => total + Number(ing.totalWeight || 0),
+    0
+  );
+});
+
+const totalRawIngredientWeight = computed(() => {
+  return calculationResult.value.rawMaterials.reduce(
+    (total, raw) => total + Number(raw.totalWeight || 0),
+    0
+  );
+});
+
+
 
 function selectCategory(catId) {
   activeCategory.value = catId;
@@ -252,6 +308,9 @@ function handleImageError(e) {
 /* Base Styles */
 .calculator-app {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
   background-color: var(--bg-main);
   background-image: radial-gradient(var(--dot-color) 1.5px, transparent 1.5px);
   background-size: 24px 24px;
@@ -259,6 +318,20 @@ function handleImageError(e) {
   font-family: 'Fredoka', 'Quicksand', system-ui, sans-serif;
   padding-bottom: 2rem;
   transition: all 0.3s ease;
+}
+
+.workspace {
+  flex: 1;
+
+  max-width: 1200px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 1.5rem auto;
+  padding: 0 1rem;
+
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 1.5rem;
 }
 
 /* Top Nav */
@@ -370,8 +443,9 @@ function handleImageError(e) {
   margin-bottom: 1rem;
 }
 
-.card h2, .card h3 {
-  margin-top: 0;
+.card h2,
+.card h3 {
+  margin: 0;
   font-size: 1.15rem;
   font-weight: 800;
   color: var(--accent-primary);
@@ -463,10 +537,36 @@ function handleImageError(e) {
 }
 
 /* Results */
+.summary-badges {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cost-badge {
+  background: #ffe082;
+  color: #5d4037;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  font-weight: 800;
+}
 .summary-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.section-header h3 {
+  margin: 0;
 }
 
 .weight-badge {
@@ -476,6 +576,7 @@ function handleImageError(e) {
   border-radius: 15px;
   font-size: 0.85rem;
   font-weight: 800;
+  white-space: nowrap;
 }
 
 .summary-detail {
@@ -527,11 +628,30 @@ function handleImageError(e) {
   color: var(--accent-primary);
 }
 
+.gap {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
 .ing-weight {
   color: var(--text-sub);
   font-size: 0.8rem;
 }
 
+.app-footer {
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  margin-top: auto;
+
+  color: var(--text-sub);
+  font-size: 0.85rem;
+  font-weight: 600;
+
+  border-top: 2px solid var(--border-color);
+}
 /* Responsive */
 @media (max-width: 900px) {
   .workspace {

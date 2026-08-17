@@ -6,10 +6,13 @@ const getImageUrl = (name) => {
 export const RECIPES = {
   categories: [
     { id: 'bento', label: 'Bento Sets', icon: '🍱' },
-    { id: 'tungsten', label: 'Tungsten Crafting', icon: '🪨' }
   ],
 
   items: {
+
+    // =====================================================
+    // BENTO 1
+    // =====================================================
     bento1: {
       id: 'bento1',
       name: 'Bento 1',
@@ -17,104 +20,299 @@ export const RECIPES = {
       weight: 1.0,
       unit: 'pack',
       yield: 1,
-      image: getImageUrl('bento1.jpg'), // <--- Use helper function
+      image: getImageUrl('bento1.jpg'),
+
       ingredients: [
+        { itemId: 'cash', quantity: 50 },
+
         { itemId: 'wood_pack', quantity: 2 },
         { itemId: 'sliced_pork_pack', quantity: 2 },
         { itemId: 'rice_pack', quantity: 2 },
-        { itemId: 'milk_pack', quantity: 2 },
-        { itemId: 'sauce', quantity: 1 }
+        { itemId: 'milk_pack', quantity: 1 },
+        { itemId: 'sauce', quantity: 1 },
       ]
     },
+
+
+    // =====================================================
+    // BENTO 2
+    // =====================================================
     bento2: {
       id: 'bento2',
       name: 'Bento 2',
       category: 'bento',
-      weight: 1.2,
+      weight: 1.0,
       unit: 'pack',
       yield: 1,
-      image: getImageUrl('bento2.png'),
+      image: getImageUrl('bento2.jpeg'),
+
       ingredients: [
-        { itemId: 'wood_pack', quantity: 3 },
-        { itemId: 'sliced_pork_pack', quantity: 4 },
-        { itemId: 'rice_pack', quantity: 2 }
+        { itemId: 'cash', quantity: 50 },
+
+        { itemId: 'milk_pack', quantity: 1 },
+        { itemId: 'grape_pack', quantity: 2 },
+        { itemId: 'papaya_pack', quantity: 2 },
+        { itemId: 'wood_pack', quantity: 2 },
+        { itemId: 'sugar', quantity: 3 },
+        { itemId: 'salt', quantity: 1 },
       ]
     },
+
+
+    // =====================================================
+    // BENTO 3
+    // =====================================================
+    bento3: {
+      id: 'bento3',
+      name: 'Bento 3',
+      category: 'bento',
+      weight: 1.0,
+      unit: 'pack',
+      yield: 1,
+      image: getImageUrl('bento3.png'),
+
+      ingredients: [
+        { itemId: 'cash', quantity: 50 },
+
+        { itemId: 'sauce', quantity: 1 },
+        { itemId: 'wood_pack', quantity: 2 },
+         { itemId: 'milk_pack', quantity: 2 },
+        { itemId: 'sugar', quantity: 1 },
+        { itemId: 'crab_pack', quantity: 1 },
+        { itemId: 'rice_pack', quantity: 2 },
+      ]
+    },
+
+
+    // =====================================================
+    // PACKS
+    // =====================================================
+
     wood_pack: {
       id: 'wood_pack',
-      name: 'Wood Pack',
+      name: 'Pack Wood',
       weight: 0.2,
       unit: 'pack',
-      yield: 2,
+      yield: 1,
       image: getImageUrl('wood_pack.jpg'),
-      ingredients: [{ itemId: 'normal_wood', quantity: 4 }]
+
+      ingredients: [
+        { itemId: 'normal_wood', quantity: 2 }
+      ]
     },
+
     sliced_pork_pack: {
       id: 'sliced_pork_pack',
-      name: 'Sliced Pork Pack',
-      weight: 0.3,
+      name: 'Pack Sliced Pork',
+      weight: 0.2,
       unit: 'pack',
       yield: 1,
       image: getImageUrl('pork_pack.jpg'),
-      ingredients: [{ itemId: 'raw_pork', quantity: 2 }]
+
+      ingredients: [
+        { itemId: 'raw_pork', quantity: 2 }
+      ]
     },
+
     rice_pack: {
       id: 'rice_pack',
-      name: 'Rice Pack',
+      name: 'Pack Rice',
       weight: 0.2,
       unit: 'pack',
       yield: 1,
       image: getImageUrl('rice_pack.jpg'),
-      ingredients: [{ itemId: 'raw_rice', quantity: 3 }]
+
+      ingredients: [
+        { itemId: 'raw_rice', quantity: 2 }
+      ]
     },
+
     milk_pack: {
       id: 'milk_pack',
-      name: 'Milk Pack',
-      weight: 0.1,
+      name: 'Pack Milk',
+      weight: 0.2,
       unit: 'pack',
       yield: 1,
       image: getImageUrl('milk_pack.jpg'),
-      ingredients: [{ itemId: 'raw_milk', quantity: 2 }]
+
+      ingredients: [
+        { itemId: 'raw_milk', quantity: 2 }
+      ]
     },
+
+    grape_pack: {
+      id: 'grape_pack',
+      name: 'Pack Grape',
+      weight: 0.2,
+      unit: 'pack',
+      yield: 1,
+      image: getImageUrl('packgrape.jpg'),
+
+      ingredients: [
+        { itemId: 'raw_grape', quantity: 2 }
+      ]
+    },
+
+    papaya_pack: {
+      id: 'papaya_pack',
+      name: 'Pack Papaya',
+      weight: 0.2,
+      unit: 'pack',
+      yield: 1,
+      image: getImageUrl('packpapaya.jpg'),
+
+      ingredients: [
+        { itemId: 'raw_papaya', quantity: 2 }
+      ]
+    },
+
+    crab_pack: {
+      id: 'crab_pack',
+      name: 'Pack Crab',
+      weight: 0.2,
+      unit: 'pack',
+      yield: 1,
+      image: getImageUrl('packcrab.jpg'),
+
+      ingredients: [
+        { itemId: 'raw_crab', quantity: 2 }
+      ]
+    },
+
+
+    // =====================================================
+    // DIRECT ITEMS
+    // =====================================================
+
     sauce: {
       id: 'sauce',
       name: 'Sauce',
-      weight: 0.05,
+      weight: 0.25,
       unit: 'bottle',
       yield: 1,
       image: getImageUrl('sauce.jpg'),
+
       ingredients: []
     },
-    normal_wood: {
-      id: 'normal_wood',
-      name: 'Normal Wood',
-      weight: 0.05,
-      unit: 'pcs',
-      image: getImageUrl('normal_wood.jpg'),
-      ingredients: []
-    },
-    raw_pork: {
-      id: 'raw_pork',
-      name: 'Raw Pork',
+
+    sugar: {
+      id: 'sugar',
+      name: 'Sugar',
       weight: 0.1,
       unit: 'pcs',
-      image: getImageUrl('raw_pork.jpg'),
+      yield: 1,
+      image: getImageUrl('sugar.jpg'),
+
       ingredients: []
     },
+
+    salt: {
+      id: 'salt',
+      name: 'Salt',
+      weight: 0.1,
+      unit: 'pcs',
+      yield: 1,
+      image: getImageUrl('salt.jpg'),
+
+      ingredients: []
+    },
+
+
+    // =====================================================
+    // CASH
+    // =====================================================
+
+    cash: {
+      id: 'cash',
+      name: 'Cash',
+      weight: 0,
+      unit: 'KKD',
+      yield: 1,
+      type: 'currency',
+      image: getImageUrl('cash.jpg'),
+
+      ingredients: []
+    },
+
+
+    // =====================================================
+    // RAW MATERIALS
+    // =====================================================
+
+    normal_wood: {
+      id: 'normal_wood',
+      name: 'Wood',
+      weight: 0.2,
+      unit: 'pcs',
+      yield: 1,
+      image: getImageUrl('normal_wood.jpg'),
+
+      ingredients: []
+    },
+
+    raw_pork: {
+      id: 'raw_pork',
+      name: 'Pig',
+      weight: 0.2,
+      unit: 'pcs',
+      yield: 1,
+      image: getImageUrl('raw_pork.jpg'),
+
+      ingredients: []
+    },
+
     raw_rice: {
       id: 'raw_rice',
-      name: 'Raw Rice',
-      weight: 0.05,
+      name: 'Rice',
+      weight: 0.2,
       unit: 'pcs',
+      yield: 1,
       image: getImageUrl('raw_rice.jpg'),
+
       ingredients: []
     },
+
     raw_milk: {
       id: 'raw_milk',
-      name: 'Raw Milk',
-      weight: 0.05,
+      name: 'Milk',
+      weight: 0.2,
       unit: 'pcs',
+      yield: 1,
       image: getImageUrl('raw_milk.jpg'),
+
+      ingredients: []
+    },
+
+    raw_grape: {
+      id: 'raw_grape',
+      name: 'Grape',
+      weight: 0.2,
+      unit: 'pcs',
+      yield: 1,
+      image: getImageUrl('grape.png'),
+
+      ingredients: []
+    },
+
+    raw_papaya: {
+      id: 'raw_papaya',
+      name: 'Papaya',
+      weight: 0.2,
+      unit: 'pcs',
+      yield: 1,
+      image: getImageUrl('papaya.jpg'),
+
+      ingredients: []
+    },
+
+    raw_crab: {
+      id: 'raw_crab',
+      name: 'Crab',
+      weight: 0.2,
+      unit: 'pcs',
+      yield: 1,
+      image: getImageUrl('crab.jpg'),
+
       ingredients: []
     }
   }
